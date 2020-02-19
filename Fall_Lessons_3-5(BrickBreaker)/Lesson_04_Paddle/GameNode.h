@@ -79,6 +79,6 @@ class GameNode : public Node
 
         void enter()
         {
-            setCurrentScreen((*getScreenList())[0]);
+            setCurrentScreen(getScreenList()[0]);
         }
 };

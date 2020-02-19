@@ -85,6 +85,10 @@ void SimpleGame::newGame()
     paddle->setYPos(windowHeight-paddle->getHeight());
     paddle->setXVelocity(0);
     setisNewGame(false);
+	for (int j = 0; j < getEntities().size(); j++)
+	{
+		getEntities()[j]->setState(true);
+	}
 }
 
 void SimpleGame::logic()
@@ -151,17 +155,17 @@ void SimpleGame::logic()
 	int numFalse = 0;
 
 	// find the brick with the largest collision area
-	for (j = 2; j < getEntities()->size(); j++)
+	for (j = 2; j < getEntities().size(); j++)
 	{
         // if collided then state should be false, keep track so know when game over
-		if ((*getEntities())[j]->getState() == false)
+		if (getEntities()[j]->getState() == false)
 		{
 			numFalse += 1;
 			continue;
 		}
 
 		SDL_Rect ballRegion = ball->getGameObjectTexture()->getImageDestination();
-		SDL_Rect brickRegion = (*getEntities())[j]->getGameObjectTexture()->getImageDestination();
+		SDL_Rect brickRegion = getEntities()[j]->getGameObjectTexture()->getImageDestination();
 
 		if (SDL_HasIntersection(&ballRegion, &brickRegion))
 		{
@@ -187,7 +191,7 @@ void SimpleGame::logic()
 	// for that brick with the largest collision area do the following:
 	if (j >= 2)
 	{
-        Brick* currentBrick = (Brick*)(*getEntities())[j];
+        Brick* currentBrick = (Brick*)(getEntities())[j];
 		// first find the corner of the ball that collided
 		int xCorner = 0;
 		int yCorner = 0;

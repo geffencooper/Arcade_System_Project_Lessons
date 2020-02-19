@@ -33,6 +33,54 @@ class GameNode : public Node
             game->addMovingEntity(paddle);
             game->setPaddle(paddle);
 
+            // create and initialize all the brick objects
+            for (int row = 0; row < 5; row++)
+            {
+                for (int col = 0; col < 10; col++)
+                {
+                    if (row == 0)
+                    {
+                        Brick* newYellowBrick = new Brick;
+                        ArcadeTexture* yellowBrickTexture = createImage(renderer_in, "brickBreakerNodeImages/yellowBrickTexture.png");
+                        yellowBrickTexture->setPosition(70 + col * 50, 50 + row * 20);
+                        newYellowBrick->setGameObjectTexture(yellowBrickTexture);
+                        game->addEntity(newYellowBrick);
+                    }
+                    else if (row == 1)
+                    {
+                        Brick* newBlueBrick = new Brick;
+                        ArcadeTexture* blueBrickTexture = createImage(renderer_in, "brickBreakerNodeImages/blueBrickTexture.png");
+                        blueBrickTexture->setPosition(70 + col * 50, 50 + row * 20);
+                        newBlueBrick->setGameObjectTexture(blueBrickTexture);
+                        game->addEntity(newBlueBrick);
+                    }
+                    else if (row == 2)
+                    {
+                        Brick* newRedBrick = new Brick;
+                        ArcadeTexture* redBrickTexture = createImage(renderer_in, "brickBreakerNodeImages/redBrickTexture.png");
+                        redBrickTexture->setPosition(70 + col * 50, 50 + row * 20);
+                        newRedBrick->setGameObjectTexture(redBrickTexture);
+                        game->addEntity(newRedBrick);
+                    }
+                    else if (row == 3)
+                    {
+                        Brick* newGreenBrick = new Brick;
+                        ArcadeTexture* greenBrickTexture = createImage(renderer_in, "brickBreakerNodeImages/greenBrickTexture.png");
+                        greenBrickTexture->setPosition(70 + col * 50, 50 + row * 20);
+                        newGreenBrick->setGameObjectTexture(greenBrickTexture);
+                        game->addEntity(newGreenBrick);
+                    }
+                    else if (row == 4)
+                    {
+                        Brick* newYellowBrick = new Brick;
+                        ArcadeTexture* yellowBrickTexture = createImage(renderer_in, "brickBreakerNodeImages/yellowBrickTexture.png");
+                        yellowBrickTexture->setPosition(70 + col * 50, 50 + row * 20);
+                        newYellowBrick->setGameObjectTexture(yellowBrickTexture);
+                        game->addEntity(newYellowBrick);
+                    }
+                }
+            }
+
             game->setisNewGame(true);
             game->setGameState(true);
 
@@ -79,6 +127,6 @@ class GameNode : public Node
 
         void enter()
         {
-            setCurrentScreen((*getScreenList())[0]);
+            setCurrentScreen(getScreenList()[0]);
         }
 };

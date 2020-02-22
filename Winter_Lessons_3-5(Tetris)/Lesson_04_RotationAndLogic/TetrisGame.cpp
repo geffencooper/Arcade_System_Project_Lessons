@@ -52,12 +52,10 @@ Action TetrisGame::update(SDL_Event* event)
     {
         if((*event).type == SDL_KEYDOWN && (*event).key.keysym.sym == SDLK_DOWN)
         {
-            //moveDown(getMovingEntities());
-            // 1 +++++++++++++++++++++
-            //rot.y += getMovingEntities()[0]->getHeight();
-            
-            // 2 +++++++++++++++++++++
-            count=59;
+            if(!getNextPiece)
+            {
+                count=59;
+            }
         }
         else if((*event).type == SDL_KEYDOWN && (*event).key.keysym.sym == SDLK_UP)
         {

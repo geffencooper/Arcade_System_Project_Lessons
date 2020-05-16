@@ -8,6 +8,7 @@ IMPORTANT
 1. These folders only contain the new source code for each lesson, NOT a fully working project. This means you need to
    follow the instructions for lesson 0 to setup a working base project before using this code. The base code is at these repos:
    https://github.com/geffencooper/ArcadeSystem_windows
+   
    https://github.com/geffencooper/ArcadeSystem_mac
 
 2. Lesson 0, 1, 2 are about setting up the development environment and designing and implementing the menu system. These lessons are identical
